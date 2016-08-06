@@ -1,7 +1,9 @@
 body { padding-top: 50px; }
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
-
+.charts{
+  margin-top:50px;
+}
 #hero-bar {
   position: absolute;
   left: 0;
