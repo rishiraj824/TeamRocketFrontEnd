@@ -1,6 +1,15 @@
 var app = angular.module("app", ["chart.js"]);
 app.controller("LineCtrl", function ($scope) {
-
+  /*$http({
+    method: 'GET',
+    url: '/someUrl'
+  }).then(function successCallback(response) {
+      // this callback will be called asynchronously
+      // when the response is available
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });*/
   $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
   $scope.series = ['Series A', 'Series B'];
   $scope.data = [
