@@ -53,6 +53,10 @@
         <div class="charts">
            <div class="row">
               <div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl">
+                <select name="repeatSelect" id="repeatSelect"  ng-model="select.model">
+
+                      <option  ng-repeat="option in select.availableOptions" value="{{option.id}}" ng-selected="{{option.id == select.model}}">{{option.name}}</option>
+                    </select>
                 <div class="panel panel-default">
                   <div class="panel-heading">Line Chart</div>
                   <div class="panel-body">
@@ -71,11 +75,11 @@
                 </div>
               </div>
               <div class="col-lg-8 col-sm-12"  >
-              <select class="form-control">
+              <select id="Map" class="form-control">
                 <option value="1991">1991</option>
                 <option value="2001">2001</option>
                 <option value="2011">2011</option>
-                <option value="2016">2016</option>
+                <option value="2021">2021</option>
               </select>
                 <div class="panel panel-default">
                   <div class="panel-heading">World Map</div>
@@ -114,7 +118,7 @@
         var x = "0"
 
      
-       $.ajax({
+      /* $.ajax({
         url: "http://myffcs.in:8888/search?stateCode=0"+('0' + i).slice(-2), 
         dataType: 'json',
         success: function(data){
@@ -126,83 +130,10 @@
             }
             
         }
-      });
+      });*/
     }
     
-     FusionCharts.ready(function() {
-       
-      
-
-    var populationMap = new FusionCharts({
-        type: 'maps/india',
-        renderAt: 'chart-container',
-        width: '600',
-        height: '400',
-        dataFormat: 'json',
-        dataSource: {
-            "chart": {
-                "caption": "India Population",
-                "theme": "fint",
-                "formatNumberScale": "0",
-                "numberSuffix": "M",
-                "includeNameInLabels": "1",
-                "useSNameInLabels": "0"
-            },
-            "colorrange": {
-                "color": [{
-                    "minvalue": "0",
-                    "maxvalue": "100",
-                    "code": "#E0F0E0",
-                    "displayValue": "Below 100M"
-                }, {
-                    "minvalue": "100",
-                    "maxvalue": "500",
-                    "code": "#D0DFA3",
-                    "displayValue": "100-500M"
-                }, {
-                    "minvalue": "500",
-                    "maxvalue": "1000",
-                    "code": "#B0BF92",
-                    "displayValue": "500-1000M"
-                }, {
-                    "minvalue": "1000",
-                    "maxvalue": "5000",
-                    "code": "#91AF64",
-                    "displayValue": "Above 1B"
-                }]
-            },
-            "data": [
-        {
-            "id": "AN",
-            "value": "515"
-        },
-        {
-            "id": "AP",
-            "value": "373",
-            "showLabel": "1"
-        },
-        {
-            "id": "AS",
-            "value": "3875",
-            "showLabel": "1"
-        },
-        {
-            "id": "JH",
-            "value": "727"
-        },
-        {
-            "id": "AF",
-            "value": "885",
-            "showLabel": "1"
-        },
-        {
-            "id": "AU",
-            "value": "32"
-        }
-    ]
-        }
-    }).render();
-});
+     
 
 </script>
     <script type="text/javascript" src="js/app.js"></script>
