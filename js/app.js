@@ -38,8 +38,8 @@ app.controller("LineCtrl", function ($scope,$http) {
     var populationMap = new FusionCharts({
         type: 'maps/india',
         renderAt: 'chart-container',
-        width: '600',
-        height: '400',
+        width: '900',
+        height: '700',
         dataFormat: 'json',
         dataSource: {
             "chart": {
@@ -86,8 +86,8 @@ app.controller("LineCtrl", function ($scope,$http) {
     var populationMap = new FusionCharts({
         type: 'maps/india',
         renderAt: 'chart-container',
-        width: '600',
-        height: '400',
+        width: '900',
+        height: '700',
         dataFormat: 'json',
         dataSource: {
             "chart": {
@@ -185,7 +185,7 @@ app.controller("LineCtrl", function ($scope,$http) {
     ];
     $("#repeatSelect2").on("change", function(){
       
-$scope.data = [
+      $scope.data = [
       [parseInt(x[$(this).val()]["details"]["MaleLiterate"]["2001"].replace(",","")),parseInt(x[$(this).val()]["details"]["MaleLiterate"]["2011"].replace(",",""))],
       [parseInt(x[$(this).val()]["details"]["FemaleLiterate"]["2001"].replace(",","")),parseInt(x[$(this).val()]["details"]["FemaleLiterate"]["2011"].replace(",",""))]
     ];
