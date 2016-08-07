@@ -18,12 +18,12 @@ app.controller("LineCtrl", function ($scope,$http) {
     model: '001',
     availableOptions: states
    };
-   for (var i = 1991; i <= 2001 ; i++) {
+   for (var i = 1991; i <= 2021 ; i++) {
     $scope.labels[i-1991] = i.toString();
     $scope.data[i-1991] = x["001"][i].toString();
   }
   $("#repeatSelect").on("change",function(){
-    for (var i = 1991; i <= 2001 ; i++) {
+    for (var i = 1991; i <= 2021 ; i++) {
     $scope.labels[i-1991] = i.toString();
     $scope.data[i-1991] = x[$(this).val()][i].toString();
   }
