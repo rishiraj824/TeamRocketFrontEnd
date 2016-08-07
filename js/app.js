@@ -1,5 +1,6 @@
 var app = angular.module("app", ["chart.js"]);
 app.controller("LineCtrl", function ($scope,$http) {
+
   // Simple GET request example:
   $http({
     method: 'GET',
@@ -28,7 +29,7 @@ app.controller("LineCtrl", function ($scope,$http) {
     $scope.data[i-1991] = x[$(this).val()][i].toString();
   }
   });
-  
+    
     FusionCharts.ready(function() {
       stateData = [];
      for(var i = 1; i< 36; i ++ ){
