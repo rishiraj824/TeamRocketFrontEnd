@@ -155,13 +155,43 @@ app.controller("LineCtrl", function ($scope,$http) {
     // or server returns response with an error status.
   });
 
-});
-app.controller("BarCtrl", function ($scope) {
-  $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  $scope.series = ['Series A', 'Series B'];
 
-  $scope.data = [
-    [65, 59, 80, 81, 56, 55, 40],
-    [28, 48, 40, 19, 86, 27, 90]
-  ];
 });
+
+
+  app.controller("HorizontalBarCtrl",  function ($scope,$http) {
+    $http({
+  method:'GET',
+  url : 'http://myffcs.in:6090/census/scrape'
+}).then(function successCallback(response) {
+  var x =   response.data;
+  states = [];
+  $scope.labels =[];
+  $scope.data = [];
+  i = 0;
+  for (var key in x){
+    states[i++] = {id: key, name: key}
+  }
+  $scope.select = {
+    model: 'Andaman and Nicobar Islands',
+    availableOptions: states
+   };
+   
+    $scope.labels = ['2001', '2011'];
+    $scope.series = ['Male', 'Female'];
+    $scope.data = [
+      [parseInt(response.data["Andaman and Nicobar Islands"]["details"]["MaleLiterate"]["2001"].replace(",","")),parseInt(response.data["Andaman and Nicobar Islands"]["details"]["MaleLiterate"]["2011"].replace(",",""))],
+      [parseInt(response.data["Andaman and Nicobar Islands"]["details"]["FemaleLiterate"]["2001"].replace(",","")),parseInt(response.data["Andaman and Nicobar Islands"]["details"]["FemaleLiterate"]["2011"].replace(",",""))]
+    ];
+    $("#repeatSelect2").on("change", function(){
+      
+$scope.data = [
+      [parseInt(x[$(this).val()]["details"]["MaleLiterate"]["2001"].replace(",","")),parseInt(x[$(this).val()]["details"]["MaleLiterate"]["2011"].replace(",",""))],
+      [parseInt(x[$(this).val()]["details"]["FemaleLiterate"]["2001"].replace(",","")),parseInt(x[$(this).val()]["details"]["FemaleLiterate"]["2011"].replace(",",""))]
+    ];
+    });
+});
+});
+
+
+   

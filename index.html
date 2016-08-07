@@ -66,14 +66,21 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6 col-sm-12" id="bar-chart" ng-controller="BarCtrl">
+             
+              <div class="col-lg-6 col-sm-12" id="horizontal-bar-chart" ng-controller="HorizontalBarCtrl">
+               <select name="repeatSelect2" id="repeatSelect2"  ng-model="select.model">
+
+                      <option  ng-repeat="option in select.availableOptions" value="{{option.id}}" ng-selected="{{option.id == select.model}}">{{option.name}}</option>
+                    </select>
                 <div class="panel panel-default">
-                  <div class="panel-heading">Bar Chart</div>
-                  <div class="panel-body">
-                    <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+                  <div class="panel-heading">Horizontal Bar Chart</div>
+                  <div class="panel-body">                    
+                    <canvas id="base" class="chart-horizontal-bar" chart-data="data" chart-labels="labels" >
+                    </canvas> 
                   </div>
                 </div>
               </div>
+              
               <div class="col-lg-8 col-sm-12"  >
               <select id="Map" class="form-control">
                 <option value="1991">1991</option>
